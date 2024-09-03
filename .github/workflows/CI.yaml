@@ -7,7 +7,7 @@ jobs:
     Test-and-lint:
      name: Linting and testing
      runs-on: ubuntu-latest
-      steps:
+     steps:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
