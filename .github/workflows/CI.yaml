@@ -64,4 +64,4 @@ jobs:
         if: ${{ inputs.skip }}
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-action-school
       - name: echo
-        run: echo "your choice is {{ inputs.choices }}"
+        run: echo "your choice is ${{ inputs.choices }}"
