@@ -8,6 +8,14 @@ on:
           type: boolean
           description: Skip push
           default: false
+        choices:
+          type: choice
+          description: Release from which to build and deploy
+          options:
+            - v1
+            - v2
+            - v3
+          default: v3
        
 
 
@@ -55,3 +63,5 @@ jobs:
       - name: Push to Dockerhub
         if: ${{ inputs.skip }}
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-action-school
+      - name: echo
+        run: echo "your choice is {{ inputs.choices }}"
