@@ -3,6 +3,16 @@ name: CI
 on:
   workflow_dispatch:
 
+     inputs:
+        push:
+          type: boolean
+          description: Skip push
+          default: false
+       
+
+
+
+
 jobs:
   Test-and-lint:
     name: Linting and testing
@@ -30,6 +40,7 @@ jobs:
     name: Build and push docker image
     runs-on: ubuntu-latest
     needs: Test-and-lint
+    if: ${{ !inputs.push }}
     steps:
       - name: Checkout
         id: checkout
